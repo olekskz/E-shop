@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../../public/fonts/static/Comfortaa-Regular.ttf') format('ttf'),;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Застосування шрифту */
+:root {
+    --main-font: 'Comfortaa', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: #1C1C1E;
+    margin: 0;
+}
+
+header {
+    border-radius: 10px;
+    min-height: 50px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.4em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    width: 100%;
+    font-size: 1.5em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+nav li {
+    display: flex;  
+    align-items: center; 
+    color: 2px solid #5EC2B7;
+}
+nav a {
+    color: #3c8d84;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 10px; 
+    font-size: 1.6em;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+    background-color: rgb(231, 225, 225);
+    border-radius: 10px;
+}
+
+nav input {
+    border: 2px solid #5EC2B7;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 700px;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+nav input:focus {
+    box-shadow: 0 0 0 2px  rgba(34, 148, 135, 0.5);
+    outline: none;
+}
+nav img {
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 8px;  /* Додаємо відступи навколо іконки */
+}
+
+nav img:hover {
+    transform: scale(1.1);
+    background-color: rgb(231, 225, 225);
+    border-radius: 15px;
+}
+
+/* Медіа-запити для різних розмірів екрану */
+@media screen and (max-width: 768px) {
+    nav ul {
+        font-size: 1.2em;
+        flex-wrap: wrap;
+    }
+    
+    nav li {
+        flex: 1 1 auto;
+    }
+    
+    nav input {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav ul {
+        font-size: 1em;
+    }
+    
+}
