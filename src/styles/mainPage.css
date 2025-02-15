@@ -21,7 +21,7 @@ header {
     border-radius: 10px;
     min-height: 50px;
     background-color: white;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
     padding: 0.4em;
@@ -40,12 +40,12 @@ nav ul {
     justify-content: center;
     align-items: center;
     gap: 1em;
+    flex-wrap: nowrap;
 }
 
 nav li {
     display: flex;  
     align-items: center; 
-    color: 2px solid #5EC2B7;
 }
 nav a {
     color: #3c8d84;
@@ -66,19 +66,20 @@ nav input {
     border-radius: 10px;
     width: 100%;
     max-width: 100%;
-    min-width: 700px;
+    min-width: 500px;
     font-size: 1em;
-    transition: 0.3s;
+    
 }
 
 nav input:focus {
     box-shadow: 0 0 0 2px  rgba(34, 148, 135, 0.5);
     outline: none;
+    transition: 0.3s;
 }
 nav img {
     cursor: pointer;
     transition: transform 0.2s;
-    padding: 8px;  /* Додаємо відступи навколо іконки */
+    padding: 8px;  
 }
 
 nav img:hover {
@@ -87,11 +88,65 @@ nav img:hover {
     border-radius: 15px;
 }
 
-/* Медіа-запити для різних розмірів екрану */
+.catalog {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 1em;
+    top: 90px;
+    background-color: white;
+    width: 200px; /* Фіксована початкова ширина */
+    border-radius: 15px;
+    font-size: 15px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Плавна анімація */
+}
+
+.catalog ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.catalog li {
+    padding: 20px;
+    text-decoration: none;
+    
+}
+
+.catalog li:hover {
+    transform: scale(1.1);
+    border-radius: 10px;
+    font-style: bold;
+    transition: transform 0.3s;
+}
+.catalog a {
+    text-decoration: none;
+    color: #5EC2B7;  
+    transition: color 0.2s;  
+}
+
+.catalog a:hover {
+    color: #3c8d84;  
+}
+
+/* Медіа-запити для каталогу */
+@media screen and (max-width: 1200px) {
+    .catalog {
+        width: 200px;
+        font-size: 16px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     nav ul {
         font-size: 1.2em;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        
     }
     
     nav li {
@@ -102,11 +157,39 @@ nav img:hover {
         width: 100%;
         max-width: none;
     }
+
+    .catalog {
+        width: 150px;
+        font-size: 16px;
+        margin-left: 15px;
+        padding: 0.8em;
+    }
+
+    .catalog li {
+        padding: 15px;
+    }
 }
 
 @media screen and (max-width: 480px) {
     nav ul {
         font-size: 1em;
     }
-    
+
+    .catalog {
+        position: static; /* Змінюємо на статичну позицію */
+        width: 100%;
+        margin: 70px 0 0 0; /* Відступ тільки зверху */
+        border-radius: 0;
+    }
+
+    .catalog ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog li {
+        padding: 10px;
+        text-align: center;
+    }
 }
+
