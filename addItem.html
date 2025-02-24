@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/app/public/images/favicon.ico" />
+    <link rel="stylesheet" href="/app/client/src/styles/addProduct.css">
+    <title>Electrolucid</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a>Electrolucid</a></li>
+                <li><input type="text" placeholder="Search..."></li>
+                <li><img src="/app/public/images/user-regular.svg" alt="profile-icon" width="24" height="24"></li>
+                <li><img src="/app/public/images/cart-shopping-solid.svg" alt="cart-icon" width="24" height="24"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="item-form">
+            <form>
+                <h1>Add a product</h1>
+                <label for="product-name">Product Name</label>
+                <input type="text" name="product-name" id="product-name" required>
+                <label for="product-price">Product Price</label>
+                <input type="number" name="product-price" id="product-price" required>
+                <label for="product-image">Product Image</label>
+                <input type="file" name="product-image" id="product-image" required>
+                <label for="product-category">Product Category</label>
+                <select name="product-category" id="product-category" required>
+                    <option value="phones">Phones</option>
+                    <option value="notebooks">Notebooks</option>
+                    <option value="tablets">Tablets</option>
+                    <option value="smartwatch">Smart watches</option>
+                    <option value="monitors">Monitors</option>
+                    <option value="gpu">GPU</option>
+                    <option value="cpu">CPU</option>
+                    <option value="keyboards">Keyboards</option>
+                    <option value="ram">RAM</option>
+                    <option value="headphones">Headphones</option>
+                    <option value="accessories">Accessories</option>
+                </select>
+                <label for="main-description">Main Description</label>
+                <textarea name="main-description" id="main-description" required></textarea>
+                <label for="secondary-description">Secondary Description</label>
+                <textarea name="secondary-description" id="secondary-description" required></textarea>
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <h4>About us</h4>
+            <ul>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Vacancies</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Payment</a></li>
+                <li><a href="#">Reurn</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Follow us</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>&copy; 2025 ElectroLucid. All rights reserved.</p>
+    </div>
+    
+</body>
+</html>

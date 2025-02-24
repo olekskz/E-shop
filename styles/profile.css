@@ -1,0 +1,261 @@
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../../public/fonts/static/Comfortaa-Regular.ttf') format('ttf'),;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Fonts */
+:root {
+    --main-font: 'Comfortaa', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: #1C1C1E;
+    margin: 0;
+}
+
+/******************** Header ***************************/
+header {
+    border-radius:0 0 15px 15px;
+    min-height: 50px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 0.4em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    width: 100%;
+    font-size: 1.5em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: nowrap;
+}
+
+nav li {
+    display: flex;  
+    align-items: center; 
+}
+nav a {
+    color: #3c8d84;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 10px; 
+    font-size: 1.6em;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+    background-color: rgb(231, 225, 225);
+    border-radius: 10px;
+}
+
+nav input {
+    border: 2px solid #5EC2B7;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 500px;
+    font-size: 1em;
+    
+}
+
+nav input:focus {
+    box-shadow: 0 0 0 2px  rgba(34, 148, 135, 0.5);
+    outline: none;
+    transition: 0.3s;
+}
+nav img {
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 8px;  
+}
+
+nav img:hover {
+    transform: scale(1.1);
+    background-color: rgb(231, 225, 225);
+    border-radius: 15px;
+}
+
+/******************* Profile ***************************/
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 0 20px;
+    background-color: white;
+    border-radius: 15px;
+    height: 964px;
+}
+
+.profile-section h2 {
+    color: #5EC2B7;
+    margin-bottom: 2rem;
+    font-size: 1.8em;
+    border-bottom: 2px solid #A4BFD5;
+    padding-bottom: 0.5rem;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sign-up-email, .contact-email, .phone {
+    display: grid;
+    grid-template-columns: 200px minmax(0, auto) 40px;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-email button, .phone button {
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.profile-info label {
+    color: #5EC2B7;
+    font-size: 1.2em;
+}
+
+
+.info-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.edit-icon:hover {
+    transform: scale(1.2);
+}
+
+.change-password-button {
+    width: 130px;
+    height: 36px;
+    border: none;
+    background-color: #5EC2B7;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+} 
+
+.change-password-button:hover {
+    background-color: #64a398;
+}
+
+/******************** Footer ***************************/
+
+footer {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    border-radius: 15px 15px 0 0;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.footer-section h4 {
+    color: #5EC2B7;
+    margin-bottom: 1rem;
+    font-size: 1.2em;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #3c8d84;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-section a:hover {
+    color: #88E3D2;
+}
+
+.footer-bottom {
+    background-color: white;
+    text-align: center;
+    padding: 8px;
+    border-top: 1px solid #A4BFD5;
+}
+
+/******************** Media-queries ***************************/
+@media screen and (max-width: 768px) {
+    nav ul {
+        font-size: 1em;
+        flex-wrap: nowrap;      
+    }
+    
+    nav li {
+        flex: 1 1 auto;
+    }
+    
+    nav input {
+        width: 100%;
+        max-width: none;
+    }
+
+    nav img {
+        padding: 1px;
+        width: 18px;
+        height: 18px;
+    }
+
+    nav img:hover {
+        transform: scale(1.1);
+        background-color: rgb(231, 225, 225);
+        border-radius: 8px;
+    }
+
+    .sign-up-email, .contact-email, .phone {
+        grid-template-columns: 150px minmax(0, auto) 30px;
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav ul {
+        font-size: 0.7em;
+        flex-wrap: wrap;
+    }
+    
+    nav li {
+        flex: 1 1 auto;
+    }
+    
+    nav input {
+        width: 100%;
+        max-width: none;
+    }
+}
