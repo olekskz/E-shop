@@ -1,0 +1,187 @@
+.header {
+    border-radius:0 0 15px 15px;
+    min-height: 50px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 0.4em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-ul {
+    width: 100%;
+    font-size: 1.5em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: nowrap;
+}
+
+.nav-li {
+    display: flex;  
+    align-items: center; 
+}
+.nav-a {
+    color: #3c8d84;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 10px; 
+    font-size: 1.6em;
+    text-decoration: none;
+}
+
+.nav-a:hover {
+    transform: scale(1.05);
+    background-color: rgb(231, 225, 225);
+    border-radius: 10px;
+}
+
+.nav-input {
+    border: 2px solid #5EC2B7;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 500px;
+    font-size: 1em;
+    
+}
+
+.nav-input:focus {
+    box-shadow: 0 0 0 2px  rgba(34, 148, 135, 0.5);
+    outline: none;
+    transition: 0.3s;
+}
+.nav-img {
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 8px;  
+}
+
+.nav-img:hover {
+    transform: scale(1.1);
+    background-color: rgb(231, 225, 225);
+    border-radius: 15px;
+}
+
+/******************** login ***************************/
+
+.login-form {
+    position: absolute;
+    top: 120%;
+    right: 4%;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 300px;
+    z-index: 1001;
+    display: none;          
+    flex-direction: column; 
+    align-items: center;    
+    gap: 1rem;             
+}
+
+.login-form-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.login-form-input {
+    width: 90%;           
+    padding: 0.9rem;
+    border-bottom: 1.5px solid #A4BFD5;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1em;
+    }
+
+.login-form-input:focus {
+    outline: none;
+    border-color: #FF9E9D;
+    transition: 0.2s;
+}
+
+.login-form-h2 {
+    width: 100%;           
+    color: #5EC2B7;
+    margin-bottom: 1.5rem;
+    text-align: center;    
+}
+
+.submit-login-button {
+    width: 100%;           
+    height: 40px;
+    border: none;
+    background-color: #5EC2B7;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: white;
+}
+
+.social-media {
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.submit-login-button:hover {
+    background-color: #88E3D2;
+    transition: 0.3s; 
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px;
+}
+
+.social-media .google-icon {
+    background-color: #426de2;;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 110%;
+    height: 30px;
+}
+
+.social-media .apple-icon {
+    background-color: black;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 110%;
+    height: 30px;
+}
+
+.social-media .google-icon:hover {
+    background-color: #7190e6;
+}
+
+.social-media .apple-icon:hover {
+    background-color: rgb(65, 64, 64);
+}
+
+.social-media {
+    order: 3; 
+}
+
+.login-form social-media-a {
+    color: #3c8d84;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.login-form social-media-a:hover {
+    color: #88E3D2;
+}
