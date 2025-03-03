@@ -74,19 +74,24 @@
 
 .login-form {
     position: absolute;
-    top: 120%;
-    right: 4%;
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    width: 300px;
-    z-index: 1001;
-    display: none;          
-    flex-direction: column; 
-    align-items: center;    
-    gap: 1rem;             
+    top: 60px;
+    width: 310px;
+    right: 100px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+.login-form.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 .login-form-form {
     display: flex;
@@ -176,12 +181,12 @@
     order: 3; 
 }
 
-.login-form social-media-a {
+.social-media-a {
     color: #3c8d84;
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.login-form social-media-a:hover {
+.social-media-a:hover {
     color: #88E3D2;
 }

@@ -1,13 +1,15 @@
+
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
-import { Provider } from "react-redux";
+import "./styles/main.css";
 
 
-export default (
-    <Provider store={store}>
-        <StaticRouter location={req.url} context={context}>
+const container = document.getElementById("root");
+const root = createRoot(container);
+
+root.render(
+    <React.StrictMode>
             <App />
-        </StaticRouter>
-    </Provider>
-)
+    </React.StrictMode>
+);

@@ -1,11 +1,19 @@
 import React from "react";
-import { Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/mainPage";
+import AddItemPage from "./pages/addItemPage";
+import Layout from "./layout"
+
 const App = () => {
     return (
-            <Routes>
-                <Route path="/" element={<MainPage />} />
-            </Routes>
+        <BrowserRouter>
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/addProduct" element={ <AddItemPage /> }/>
+                </Routes>
+            </Layout>
+        </BrowserRouter>
     );
 }
 

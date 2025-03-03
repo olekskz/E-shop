@@ -23,15 +23,15 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false
             },
             mainDescription: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT,
                 allowNull: false
             },
             subDescription: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT,
                 allowNull: false
             },
             imageUrl: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT,
                 allowNull: false
             },
             category: {

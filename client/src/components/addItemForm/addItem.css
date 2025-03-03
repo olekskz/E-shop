@@ -1,0 +1,54 @@
+main {
+    margin-top: 100px; 
+    min-height: 70vh;
+}
+
+h1 {
+    text-align: center;
+    color: #5EC2B7;
+    margin: 20px 0;
+}
+.item-form {
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 20px auto;
+}
+
+.item-form label {
+    font-size: 1.2em;
+    color: #5EC2B7;
+}
+
+.item-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+    
+}
+
+/* стилі для інпутів */
+.item-form input,
+.item-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+
+}
+
+/* стилі для кнопки */
+.item-form button {
+    padding: 10px 20px;
+    background-color: #5EC2B7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.item-form button:hover {
+    background-color: #4d968d;
+    transition: 0.3s;
+}
