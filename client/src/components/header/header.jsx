@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../cartProvider";
 import "./header.css";
 
 const Header = () => {
     const [loginForm, setLoginForm] = useState(false);
+    const { setIsCartOpen } = useCart();
+
+    const showCart = () => {
+        setIsCartOpen(prev => !prev);
+        if (loginForm) {
+            setLoginForm(false);
+        }
+    }
 
     const showLoginForm = () => {
         setLoginForm(!loginForm);
+        if (setIsCartOpen) {
+            setIsCartOpen(false);
+        }
     };
 
     return (
@@ -36,6 +48,7 @@ const Header = () => {
                             alt="cart-icon"
                             width="24"
                             height="24"
+                            onClick={showCart} 
                         />
                     </li>
                 </ul>

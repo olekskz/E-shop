@@ -20,7 +20,7 @@ const Footer = () => {
                     <ul className="footer-section-ul">
                         <li className="footer-section-li"><Link className="footer-section-a" to="#">Delivery</Link></li>
                         <li className="footer-section-li"><Link className="footer-section-a" to="#">Payment</Link></li>
-                        <li className="footer-section-li"><Link className="footer-section-a" to="#">Reurn</Link></li>
+                        <li className="footer-section-li"><Link className="footer-section-a" to="#">Return</Link></li>
                     </ul>
                 </div>
 
