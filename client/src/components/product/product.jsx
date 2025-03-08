@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../features/cartSlice";
 import Catalog from "../catalog/catalog";
 import "./product.css";
 
@@ -92,23 +94,43 @@ const Products = () => {
         page > 1 && getProducts();
     }, [page]);
 
-    const ProductCard = ({ product }) => (
-        <div key={product.productId} className="product-card"> 
-            <div className="product-image">
-                <img 
-                    className="product-image-img" 
-                    src={product.imageUrl} 
-                    alt={product.productName || 'Product image'} 
-                />
+    const ProductCard = ({ product }) => {
+        const dispatch = useDispatch();
+
+        const handleAddToCart = () => {
+            dispatch(addProduct({
+                id: product.productId,
+                name: product.productName,
+                price: product.price,
+                image: product.imageUrl,
+                mainDescription: product.mainDescription,
+                quantity: 1
+            }));
+        };
+
+        return (
+            <div key={product.productId} className="product-card"> 
+                <div className="product-image">
+                    <img 
+                        className="product-image-img" 
+                        src={product.imageUrl} 
+                        alt={product.productName || 'Product image'} 
+                    />
+                </div>
+                <div className="product-info">
+                    <h3 className="product-name-h3">{product.productName}</h3>
+                    <p className="price">${product.price}</p>
+                    <p className="description">{product.mainDescription}</p>
+                    <button 
+                        className="add-to-cart"
+                        onClick={handleAddToCart}
+                    >
+                        Add to Cart
+                    </button>
+                </div>
             </div>
-            <div className="product-info">
-                <h3 className="product-name-h3">{product.productName}</h3>
-                <p className="price">${product.price}</p>
-                <p className="description">{product.mainDescription}</p>
-                <button className="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-    );
+        );
+    };
 
     return (
         <div className="main-content">

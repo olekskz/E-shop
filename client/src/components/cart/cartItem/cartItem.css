@@ -7,10 +7,16 @@
 }
 
 .cart-item-img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     border-radius: 8px;
+    margin-right: 16px;
+}
+
+.cart-item-img:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
 }
 
 .cart-item-info {
