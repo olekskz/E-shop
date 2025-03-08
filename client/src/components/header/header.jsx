@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../../cartProvider";
 import "./header.css";
 
 const Header = () => {
     const [loginForm, setLoginForm] = useState(false);
+    const [loginFormData, setLoginFormData] = useState({
+        email: "",
+        password: ""
+    });
     const { setIsCartOpen } = useCart();
+    const navigate = useNavigate();
 
     const showCart = () => {
         setIsCartOpen(prev => !prev);
@@ -15,9 +21,51 @@ const Header = () => {
     }
 
     const showLoginForm = () => {
-        setLoginForm(!loginForm);
-        if (setIsCartOpen) {
-            setIsCartOpen(false);
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/profile");
+        } else {
+            setLoginForm(!loginForm);
+            if (setIsCartOpen) {
+                setIsCartOpen(false);
+            }
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setLoginFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const { email, password } = loginFormData;
+        
+        try {
+            const response = await fetch("http://localhost:3001/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user));
+                setLoginForm(false);
+                navigate('/');
+            }
+        } catch (error) {
+            console.error(error);
         }
     };
 
@@ -26,7 +74,7 @@ const Header = () => {
             <nav>
                 <ul className="nav-ul">
                     <li className="nav-li">
-                        <Link className="nav-a">Electrolucid</Link>
+                        <Link className="nav-a" to="/">Electrolucid</Link>
                     </li>
                     <li className="nav-li">
                         <input className="nav-input" type="text" placeholder="Search..." />
@@ -57,9 +105,23 @@ const Header = () => {
             
             <div className={`login-form ${loginForm ? "active" : ""}`}>
                 <h2 className="login-form-h2">Login</h2>
-                <form className="login-form-form">
-                    <input className="login-form-input" type="email" name="username" placeholder="Email" />
-                    <input className="login-form-input" type="password" name="password" placeholder="Password" />
+                <form className="login-form-form" onSubmit={handleSubmit}>
+                    <input 
+                        className="login-form-input" 
+                        type="email" 
+                        name="email"  
+                        placeholder="Email" 
+                        value={loginFormData.email}
+                        onChange={handleChange} 
+                    />
+                    <input 
+                        className="login-form-input" 
+                        type="password" 
+                        name="password" 
+                        placeholder="Password" 
+                        value={loginFormData.password}
+                        onChange={handleChange} 
+                    />
                     <button className="submit-login-button" type="submit">Login</button>
                     <p>Or login with</p>
                     <div className="social-media">

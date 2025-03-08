@@ -5,6 +5,7 @@ import AddItemPage from "./pages/addItemPage";
 import Layout from "./layout";
 import { CartProvider } from "./cartProvider";
 import RegisterPage from "./pages/registerPage";
+import ProfilePage from "./pages/profilePage";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                         <Route path="/" element={<MainPage />} />
                         <Route path="/addProduct" element={ <AddItemPage /> }/>
                         <Route path="/register" element={ <RegisterPage />}/>
+                        <Route path="/profile" element={ <ProfilePage /> }/>
                     </Routes>
                 </Layout>
             </BrowserRouter>
