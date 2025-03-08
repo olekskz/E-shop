@@ -6,77 +6,77 @@ const Catalog = ({ onCategorySelect }) => {
   return (
     <div className="catalog">
         <ul className='catalog-ul'>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('all');
-                }}>All Products</Link>
+                }}>
+                <Link className='catalog-a'>All Products</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li'   onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('phones');
-                }}>Phones</Link>
+                }}>
+                <Link className='catalog-a'>Phones</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('notebooks');
-                }}>Notebooks</Link>
+                }}>
+                <Link className='catalog-a'>Notebooks</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('tablets');
-                }}>Tablets</Link>
+                }}>
+                <Link className='catalog-a'>Tablets</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('smartwatch');
-                }}>Smart watch</Link>
+                }}>
+                <Link className='catalog-a'>Smart watch</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('monitors');
-                }}>Monitors</Link>
+                }}>
+                <Link className='catalog-a'>Monitors</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('gpu');
-                }}>GPU</Link>
+                }}>
+                <Link className='catalog-a'>GPU</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('cpu');
-                }}>CPU</Link>
+                }}>
+                <Link className='catalog-a'>CPU</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('keyboards');
-                }}>Keyboards</Link>
+                }}>
+                <Link className='catalog-a'>Keyboards</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('ram');
-                }}>RAM</Link>
+                }}>
+                <Link className='catalog-a'>RAM</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a' onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('accesories');
-                }}>Accesories</Link>
+                }}>
+                <Link className='catalog-a'>Accesories</Link>
             </li>
-            <li className='catalog-li'>
-                <Link className='catalog-a'  onClick={(e) => {
+            <li className='catalog-li' onClick={(e) => {
                     e.preventDefault();
                     onCategorySelect('powerbanks');
-                }}>Powerbanks</Link>
+                }}>
+                <Link className='catalog-a'>Powerbanks</Link>
             </li>
         </ul>
     </div>

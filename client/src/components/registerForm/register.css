@@ -1,0 +1,124 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: white;
+    max-width: 500px;
+    margin-top: 95px;
+    border-radius: 15px;
+    margin: 95px auto 20px;
+    height: 900px;
+    gap: 3rem;
+}
+
+.register-container-h1 {
+    color: #5EC2B7;
+    margin-bottom: 1rem;
+    font-size: 2em;
+}
+
+.register-container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 30px;
+}
+
+
+.register-container-input {
+    padding: 0.9rem;
+    border-bottom: 1.5px solid #A4BFD5;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1em;
+}
+
+.register-container-input:focus {
+    outline: none;
+    border-color: #FF9E9D;
+    transition: 0.2s;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container-input {
+    padding: 0.9rem;
+    border-bottom: 1px solid #A4BFD5;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1em;
+    width: 94%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.toggle-password-img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.toggle-password:hover img {
+    opacity: 1;
+}
+
+.password-container-input:focus {
+    outline: none;
+    border-color: #FF9E9D;
+    transition: 0.2s;
+}
+
+.password-container-wrong-input:focus {
+    outline: none;
+    border-color: #f50400;
+    transition: 0.2s;
+}
+
+.submit-register-button {
+    height: 40px;
+    border: none;
+    background-color: #5EC2B7;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: white;
+}
+
+.submit-register-button:hover {
+    background-color: #88E3D2;
+    transition: 0.3s;
+}
+
+.error-message {
+    color: #f50400;
+    font-size: 0.9em;
+    margin: 5px 0;
+    text-align: left;
+}
+
+.password-container-wrong-input {
+    border-color: #f50400;
+}
+
+.password-container-wrong-input:focus {
+    border-color: #f50400;
+}

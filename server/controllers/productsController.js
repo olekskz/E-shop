@@ -3,11 +3,11 @@ const router = express.Router();
 const { Product } = require('../models');
 const { Op } = require('sequelize');
 
-// Constants
+
 const CATEGORIES = [
     'phones', 'notebooks', 'tablets', 'smartwatch', 
     'monitors', 'gpu', 'cpu', 'keyboards', 
-    'ram', 'headphones', 'accessories'
+    'ram', 'headphones', 'accessories', 'all'
 ];
 
 
@@ -40,20 +40,24 @@ router.get('/', async (req, res) => {
 });
 
 
+
 router.get('/featured', async (req, res) => {
     try {
         const featuredProducts = await Promise.all(
-            CATEGORIES.map(category => 
-                Product.findAll({
+            CATEGORIES.map(async (category) => {
+                const products = await Product.findAll({
                     where: { category },
                     limit: 4,
                     order: [['createdAt', 'DESC']]
-                })
-            )
+                });
+                return products;
+            })
         );
 
+        const products = featuredProducts.flat();
+
         res.status(200).json({
-            products: featuredProducts.flat(),
+            products,
             hasMore: false
         });
     } catch (error) {

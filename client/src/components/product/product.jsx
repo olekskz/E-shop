@@ -8,6 +8,7 @@ const Products = () => {
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
     const observerTarget = useRef(null);
 
     const getProducts = async () => {
@@ -18,9 +19,11 @@ const Products = () => {
             
             const scrollPosition = window.pageYOffset;
 
-            const url = selectedCategory 
-                ? `http://localhost:3001/products/category/${selectedCategory}?page=${page}`
-                : `http://localhost:3001/products?page=${page}`;
+            const url = isInitialLoad 
+                ? `http://localhost:3001/products/featured`
+                : selectedCategory 
+                    ? `http://localhost:3001/products/category/${selectedCategory}?page=${page}`
+                    : `http://localhost:3001/products?page=${page}`;
 
             const response = await fetch(url);
             const data = await response.json();
@@ -32,7 +35,7 @@ const Products = () => {
             }
 
             setProducts(prevProducts => {
-                if (page === 1) return data.products;
+                if (page === 1 || isInitialLoad) return data.products;
                 
                 const newProducts = data.products.filter(newProd => 
                     !prevProducts.some(existingProd => 
@@ -42,10 +45,12 @@ const Products = () => {
                 return [...prevProducts, ...newProducts];
             });
 
-            setHasMore(data.hasMore);
+            setHasMore(!isInitialLoad && data.hasMore);
             
-            
-            window.scrollTo(0, scrollPosition);
+            if (isInitialLoad) {
+                setIsInitialLoad(false);
+            }
+
         } catch (error) {
             console.error('Error:', error);
             setProducts([]);
@@ -60,6 +65,7 @@ const Products = () => {
         setSelectedCategory(category === 'all' ? null : category);
         setPage(1);
         setHasMore(true);
+        setIsInitialLoad(false); 
     };
 
     useEffect(() => {

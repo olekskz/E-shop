@@ -77,7 +77,7 @@ const Header = () => {
                             width="24"
                             height="24"
                         />
-                        <Link to="#" className="social-media-a">Sign-up</Link>
+                        <Link to="/register" className="social-media-a">Sign-up</Link>
                     </div>
                 </form>
             </div>

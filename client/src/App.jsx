@@ -4,6 +4,7 @@ import MainPage from "./pages/mainPage";
 import AddItemPage from "./pages/addItemPage";
 import Layout from "./layout";
 import { CartProvider } from "./cartProvider";
+import RegisterPage from "./pages/registerPage";
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<MainPage />} />
                         <Route path="/addProduct" element={ <AddItemPage /> }/>
+                        <Route path="/register" element={ <RegisterPage />}/>
                     </Routes>
                 </Layout>
             </BrowserRouter>
