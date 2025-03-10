@@ -6,12 +6,22 @@ import "./header.css";
 
 const Header = () => {
     const [loginForm, setLoginForm] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
     const [loginFormData, setLoginFormData] = useState({
         email: "",
         password: ""
     });
     const { setIsCartOpen } = useCart();
     const navigate = useNavigate();
+
+    const handleSearch = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (searchQuery.trim()) {
+                navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+            }
+        }
+    };
 
     const showCart = () => {
         setIsCartOpen(prev => !prev);
@@ -77,7 +87,14 @@ const Header = () => {
                         <Link className="nav-a" to="/">Electrolucid</Link>
                     </li>
                     <li className="nav-li">
-                        <input className="nav-input" type="text" placeholder="Search..." />
+                        <input 
+                            className="nav-input"
+                            type="text"
+                            placeholder="Search..." 
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onKeyPress={handleSearch}
+                        />
                     </li>
                     <li className="nav-li">
                         <img

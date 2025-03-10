@@ -109,4 +109,52 @@ router.get('/category/:category', async (req, res) => {
     }
 });
 
+
+
+router.get('/search', async (req, res) => {
+    try {
+        const { query } = req.query;
+        const page = parseInt(req.query.page) || 1;
+        const limit = 8;
+        const offset = (page - 1) * limit;
+
+        const whereClause = query ? {
+            [Op.or]: [
+                {
+                    productName: {
+                        [Op.iLike]: `%${query}%`
+                    }
+                },
+                {
+                    mainDescription: {
+                        [Op.iLike]: `%${query}%`
+                    }
+                }
+            ]
+        } : {};
+
+        const products = await Product.findAndCountAll({
+            where: whereClause,
+            limit,
+            offset,
+            order: [['createdAt', 'DESC']],
+            distinct: true
+        });
+
+        res.status(200).json({
+            products: products.rows,
+            totalPages: Math.ceil(products.count / limit),
+            currentPage: page,
+            hasMore: page * limit < products.count
+        });
+    } catch (error) {
+        console.error('Error searching products:', error);
+        res.status(500).json({
+            message: 'Failed to search products',
+            error: error.message
+        });
+    }
+});
+
+
 module.exports = router;

@@ -6,6 +6,7 @@ import Layout from "./layout";
 import { CartProvider } from "./cartProvider";
 import RegisterPage from "./pages/registerPage";
 import ProfilePage from "./pages/profilePage";
+import SearchResultsPage from "./pages/searchResultsPage";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                         <Route path="/addProduct" element={ <AddItemPage /> }/>
                         <Route path="/register" element={ <RegisterPage />}/>
                         <Route path="/profile" element={ <ProfilePage /> }/>
+                        <Route path="/search" element={<SearchResultsPage />} />
                     </Routes>
                 </Layout>
             </BrowserRouter>
